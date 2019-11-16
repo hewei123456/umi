@@ -1,3 +1,4 @@
 import Header from './Header';
+import AdminLayout from './AdminLayout';
 
-export { Header };
+export { Header, AdminLayout };

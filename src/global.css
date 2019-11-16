@@ -79,8 +79,3 @@ table {
 .pointer {
   cursor: pointer;
 }
-
-.root-wrapper {
-  height: calc(100vh);
-  width: 100%;
-}

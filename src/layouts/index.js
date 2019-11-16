@@ -1,15 +1,12 @@
 import { Scrollbars } from 'react-custom-scrollbars';
-import { Header } from '../components';
+import './index.less';
 
-function BasicLayout(props) {
-  return (
-    <div className="root-wrapper">
-      <Scrollbars hideTracksWhenNotNeeded={true}>
-        <Header/>
-        {props.children}
-      </Scrollbars>
-    </div>
-  );
-}
+const BasicLayout = props => (
+  <div className="root-wrapper">
+    <Scrollbars hideTracksWhenNotNeeded={true}>
+      {props.children}
+    </Scrollbars>
+  </div>
+);
 
 export default BasicLayout;
