@@ -1,0 +1,76 @@
+@import "./color";
+
+.custom-table {
+  width: 100%;
+  border: 1px solid @border-color;
+  box-sizing: border-box;
+
+  .table-header {
+    font-size: 14px;
+    background-color: @table-header-color;
+
+    .th {
+      height: 42px;
+      line-height: 42px;
+      overflow: hidden;
+      padding-right: 5px;
+      box-sizing: border-box;
+      text-indent: 5px;
+    }
+  }
+
+  .table-body-row {
+    background-color: white;
+    overflow: hidden;
+
+    &.even {
+      background-color: @table-even-color;
+    }
+
+    .td {
+      height: 42px;
+      overflow: hidden;
+      padding-right: 5px;
+      box-sizing: border-box;
+
+      .text-wrapper {
+        text-indent: 5px;
+        width: 100%;
+        font-size: 12px;
+        line-height: 42px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        position: relative;
+
+        .dot {
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          background: @note-color;
+          border-radius: 50%;
+          top: 5px;
+          left: 0;
+          z-index: 999;
+        }
+      }
+    }
+  }
+
+  .extend-row {
+    text-align: center;
+    box-sizing: border-box;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all .2s linear;
+
+    &.focused {
+      height: 100px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
