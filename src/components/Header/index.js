@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import router from 'umi/router';
 import withRouter from 'umi/withRouter';
+import { logo, avatar } from '@/static';
 import { navigation } from './config';
-import { logo, avatar } from '../../static';
 import './index.less';
 
 class Header extends Component {

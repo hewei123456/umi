@@ -1,14 +1,14 @@
-import { AdminLayout } from '../../components';
+import { Fragment } from 'react';
+import { AdminLayout } from '@/components';
 
 export default function() {
   return (
     <AdminLayout>
       <div>
-        aside
+        Home
       </div>
-      <div style={{ height: '1000px' }}>
-        首页
-      </div>
+
+      <Fragment/>
     </AdminLayout>
   );
 }

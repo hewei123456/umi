@@ -5,7 +5,6 @@ const AuthRouter = (props) => {
   const { component: Component } = route;
   return (
     <Route render={props => {
-      console.log(props);
       return true ? <Component {...props} /> : <Redirect to="/"/>;
     }}/>
   );
