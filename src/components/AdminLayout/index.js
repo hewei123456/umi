@@ -11,11 +11,9 @@ const AdminLayout = props => {
       {
         props.children[1] ? (
           <aside className={`aside ${showLeft ? '' : 'hide-aside'}`}>
-            <div className="aside-inner">
-              <Scrollbars>
-                {children[1]}
-              </Scrollbars>
-            </div>
+            <Scrollbars>
+              {children[1]}
+            </Scrollbars>
             <div className="toggle" onClick={() => {
               toggle();
             }}>
