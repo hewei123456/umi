@@ -8,20 +8,16 @@ const AdminLayout = props => {
   const { showLeft, toggle, children } = props;
   return (
     <div className="aside-view">
-      {
-        props.children[1] ? (
-          <aside className={`aside ${showLeft ? '' : 'hide-aside'}`}>
-            <Scrollbars>
-              {children[1]}
-            </Scrollbars>
-            <div className="toggle" onClick={() => {
-              toggle();
-            }}>
-              <Icon type={showLeft ? 'caret-left' : 'caret-right'}/>
-            </div>
-          </aside>
-        ) : null
-      }
+      <aside className={`aside ${showLeft ? '' : 'hide-aside'}`}>
+        <Scrollbars>
+          {children[1]}
+        </Scrollbars>
+        <div className="toggle" onClick={() => {
+          toggle();
+        }}>
+          <Icon type={showLeft ? 'caret-left' : 'caret-right'}/>
+        </div>
+      </aside>
       <section className="view">
         <div className="view-content">
           {children[0]}
