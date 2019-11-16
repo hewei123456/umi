@@ -1,41 +1,29 @@
 @import "../../style/color";
 
-.container {
-  width: 100%;
-  min-width: 1250px;
-  height: calc(100vh);
+.aside-view {
   display: flex;
-  flex-direction: column;
 
-  .aside-view {
-    flex: 1;
-    width: 100%;
-    box-sizing: border-box;
-    background: white;
-    display: flex;
+  .aside {
+    background-color: @dark-color;
+    width: 280px;
+    visibility: visible;
+    transition: all .2s linear;
 
-    .aside {
-      background-color: @dark-color;
-      width: 240px;
-      visibility: visible;
-      transition: all .2s linear;
-
-      &.hide-aside {
-        width: 0;
-        visibility: hidden;
-      }
+    &.hide-aside {
+      width: 0;
+      visibility: hidden;
     }
+  }
 
-    .view {
-      flex: 1;
-      background: white;
-      overflow-wrap: normal;
+  .view {
+    flex: 1;
+    background: white;
+    overflow-wrap: normal;
 
-      .view-content {
-        width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-      }
+    .view-content {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
     }
   }
 }
