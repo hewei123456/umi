@@ -28,15 +28,14 @@ const AdminLayout = props => {
 };
 
 
-const mapStateToProps = ({ showLeft }) => ({
-  showLeft: showLeft,
+const mapStateToProps = ({ layout }) => ({
+  showLeft: layout.showLeft,
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggle(bool) {
+  toggle() {
     dispatch({
-      type: 'showLeft/toggle',
-      payload: bool,
+      type: 'layout/toggle',
     });
   },
 });

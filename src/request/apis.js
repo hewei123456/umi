@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const baseUrl = 'http://47.94.214.83:5000';
-const provincesApi = baseUrl + '/api/statistics/provinces';
+const usersApi = '/api/users';
+const createUserApi = '/api/users/create';
+const deleteUserApi = '/api/users/delete';
 
-
-export const fetch_provinces = () => (axios.get(provincesApi));
+export const fetchUsers = () => (axios.get(usersApi));
+export const createUser = name => (axios.post(createUserApi, { name }));
+export const deleteUser = id => (axios.post(deleteUserApi, { id }));
