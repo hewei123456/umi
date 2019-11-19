@@ -1,5 +1,5 @@
 export default {
-  namespace: 'admin',
+  namespace: 'layout',
   state: {
     showLeft: true,
   },
