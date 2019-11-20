@@ -56,38 +56,40 @@ export default class List extends Component {
   render() {
     const { users, username } = this.state;
     return (
-      <div style={{ height: '3000px' }}>
-        {
-          users.map(user => (
-            <div key={user.id}>
-              {user.name}
-              <Button type="link" shape="circle" icon="close" onClick={() => {
-                this.deleteUser(user.id);
-              }}/>
-            </div>
-          ))
-        }
-        <Row style={{ marginTop: '20px' }}>
-          <Col span={20}>
-            <Input
-              placeholder="username"
-              value={username}
-              onChange={this.changeUsername}
-              onKeyDown={e => {
-                if (e.keyCode === 13)
+      <AdminLayout>
+        <div style={{ height: '3000px' }}>
+          {
+            users.map(user => (
+              <div key={user.id}>
+                {user.name}
+                <Button type="link" shape="circle" icon="close" onClick={() => {
+                  this.deleteUser(user.id);
+                }}/>
+              </div>
+            ))
+          }
+          <Row style={{ marginTop: '20px' }}>
+            <Col span={20}>
+              <Input
+                placeholder="username"
+                value={username}
+                onChange={this.changeUsername}
+                onKeyDown={e => {
+                  if (e.keyCode === 13)
+                    this.createUser(username);
+                }}
+              />
+            </Col>
+            <Col span={3} offset={1}>
+              <Button
+                onClick={() => {
                   this.createUser(username);
-              }}
-            />
-          </Col>
-          <Col span={3} offset={1}>
-            <Button
-              onClick={() => {
-                this.createUser(username);
-              }}>添加用户</Button>
-          </Col>
-        </Row>
-      </div>
-
+                }}>添加用户</Button>
+            </Col>
+          </Row>
+        </div>
+        <Fragment/>
+      </AdminLayout>
     );
   }
 }
