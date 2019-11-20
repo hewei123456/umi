@@ -5,7 +5,7 @@ const AuthRouter = (props) => {
   const { component: Component } = route;
   return (
     <Route render={props => {
-      return true ? <Component {...props} /> : <Redirect to="/"/>;
+      return !sessionStorage.getItem('token') ? <Component {...props} /> : <Redirect to="/"/>;
     }}/>
   );
 };
