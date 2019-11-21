@@ -1,11 +1,20 @@
-import { Component } from 'react';
+import { PureComponent } from 'react';
 import router from 'umi/router';
 import withRouter from 'umi/withRouter';
 import { logo, avatar } from '@/static';
-import { navigation } from './config';
 import './index.less';
 
-class Header extends Component {
+const navigation = [
+  {
+    name: 'Home',
+    key: '/',
+  }, {
+    name: 'List',
+    key: '/list',
+  },
+];
+
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

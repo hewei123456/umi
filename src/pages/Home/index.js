@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { AdminLayout } from '@/components';
 
-class Home extends PureComponent {
+class HomePage extends PureComponent {
   render() {
     const { results } = this.props;
     return (
@@ -48,4 +48,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -1,13 +1,14 @@
-import React, { Fragment, Component } from 'react';
+import { List } from 'immutable';
+import React, { Fragment, PureComponent } from 'react';
 import { Button, Input, Row, Col, message } from 'antd';
 import { AdminLayout } from '@/components';
 import { fetchUsers, createUser, deleteUser } from '@/request/apis';
 
-export default class List extends Component {
+export default class ListPage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
+      users: List([]),
       username: '',
     };
   }
@@ -15,7 +16,8 @@ export default class List extends Component {
   fetchUsers = async () => {
     try {
       let { data } = await fetchUsers();
-      this.setState(state => ({ users: data.users }));
+      const users = List(data.users);
+      this.setState(state => ({ users }));
     } catch (e) {
       console.log(e);
     }
@@ -25,7 +27,8 @@ export default class List extends Component {
     if (name)
       try {
         let { data } = await createUser(name);
-        this.setState(state => ({ users: data.users }));
+        const users = List(data.users);
+        this.setState(state => ({ users }));
       } catch (e) {
         console.log(e);
       }
@@ -38,7 +41,8 @@ export default class List extends Component {
   deleteUser = async id => {
     try {
       let { data } = await deleteUser(id);
-      this.setState(state => ({ users: data.users }));
+      const users = List(data.users);
+      this.setState(state => ({ users }));
     } catch (e) {
       console.log(e);
     }
