@@ -22,12 +22,12 @@ export default {
         {
           path: '/list/',
           component: './List',
-          Routes: ['src/routes/Route.js'],
+          Routes: ['src/routes/AuthRoute.js'],
         },
         {
           path: '/list/:id',
           component: './Detail',
-          Routes: ['src/routes/Route.js'],
+          Routes: ['src/routes/AuthRoute.js'],
         },
       ],
     },
