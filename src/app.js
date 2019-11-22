@@ -19,8 +19,8 @@ export const dva = {
       err.preventDefault();
       console.error(err.message);
     },
-    // extraEnhancers: [
-    //   persistEnhancer(),
-    // ],
+    extraEnhancers: [
+      persistEnhancer(),
+    ],
   },
 };

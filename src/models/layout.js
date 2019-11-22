@@ -5,8 +5,7 @@ export default {
   },
   reducers: {
     toggle(state) {
-      const bool = state.showLeft;
-      return { ...state, showLeft: !bool };
+      return { ...state, showLeft: !state.showLeft };
     },
   },
 };
