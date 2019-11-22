@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
+
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import CacheRoute from 'react-router-cache-route';
 
 const { Route } = require('dva').router;
 
@@ -21,7 +21,7 @@ export default class CommonRoute extends PureComponent {
     const { route } = this.props;
     const { component: Component } = route;
     return (
-      <CacheRoute render={props => <Component {...props}/>} />
+      <Route render={props => <Component {...props}/>}/>
     );
   }
 }
