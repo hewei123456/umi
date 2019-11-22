@@ -1,16 +1,22 @@
 import { PureComponent } from 'react';
 import router from 'umi/router';
 import withRouter from 'umi/withRouter';
+
+import { Icon } from 'antd';
+
 import { logo, avatar } from '@/static';
+
 import './index.less';
 
 const navigation = [
   {
-    name: '首页',
+    name: '信息总览',
     key: '/',
+    icon: 'pie-chart',
   }, {
     name: '表单',
     key: '/list',
+    icon: 'edit',
   },
 ];
 
@@ -47,6 +53,7 @@ class Header extends PureComponent {
                 };
                 return (
                   <li {...props}>
+                    <Icon type={item.icon} className="nav-item-icon"/>
                     {item.name}
                   </li>
                 );

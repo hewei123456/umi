@@ -10,6 +10,11 @@ export default {
       component: '../layouts/index',
       routes: [
         {
+          path: '/login',
+          component: './Login',
+          Routes: ['src/routes/Route.js'],
+        },
+        {
           path: '/list',
           component: './List',
           Routes: ['src/routes/AuthRoute.js'],
@@ -17,6 +22,7 @@ export default {
         {
           path: '/',
           component: './Home',
+          Routes: ['src/routes/Route.js'],
         },
       ],
     },
