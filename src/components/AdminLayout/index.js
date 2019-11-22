@@ -7,22 +7,25 @@ import './index.less';
 
 
 const AdminLayout = props => {
-  const { showLeft, toggle, children } = props;
+  const { showLeft, toggle, children, hasLeft } = props;
   return (
     <Fragment>
       <Header/>
 
       <div className="aside-view">
-        <aside className={`aside ${showLeft ? '' : 'hide-aside'}`}>
-          <Scrollbars>
-            {children[1]}
-          </Scrollbars>
-          <div className="toggle" onClick={() => {
-            toggle();
-          }}>
-            <Icon type={showLeft ? 'caret-left' : 'caret-right'}/>
-          </div>
-        </aside>
+        {
+          hasLeft ? <aside className={`aside ${showLeft ? '' : 'hide-aside'}`}>
+            <Scrollbars>
+              {children[1]}
+            </Scrollbars>
+            <div className="toggle" onClick={() => {
+              toggle();
+            }}>
+              <Icon type={showLeft ? 'caret-left' : 'caret-right'}/>
+            </div>
+          </aside> : null
+        }
+
 
         <section className="view">
           <Scrollbars>
@@ -36,6 +39,9 @@ const AdminLayout = props => {
   );
 };
 
+AdminLayout.defaultProps = {
+  hasLeft: true,
+};
 
 const mapStateToProps = ({ layout }) => ({
   showLeft: layout.showLeft,

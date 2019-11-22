@@ -6,10 +6,10 @@ import './index.less';
 
 const navigation = [
   {
-    name: 'Home',
+    name: '首页',
     key: '/',
   }, {
-    name: 'List',
+    name: '表单',
     key: '/list',
   },
 ];

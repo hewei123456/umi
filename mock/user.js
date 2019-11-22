@@ -12,15 +12,15 @@ const rest = function(data) {
 };
 
 export default {
-  'GET /api/users': { users },
+  'GET /api/user': { users },
 
-  'POST /api/users/create': (req, res) => {
+  'POST /api/user/create': (req, res) => {
     const { name } = req.body, id = ++initId;
     users.push({ id, name });
     rest.bind(res)({ users });
   },
 
-  'POST /api/users/delete': (req, res) => {
+  'POST /api/user/delete': (req, res) => {
     const { id } = req.body;
     let i = 0;
     for (i = 0; i < users.length; i++) {
