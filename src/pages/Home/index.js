@@ -5,7 +5,7 @@ import { AdminLayout } from '@/components';
 
 class HomePage extends PureComponent {
   render() {
-    const { results } = this.props;
+    const { list } = this.props;
     return (
       <AdminLayout>
         <div style={{ height: '3000px' }}>
@@ -14,7 +14,7 @@ class HomePage extends PureComponent {
           }}>add</Button>
           <ul>
             {
-              results.map(i => (
+              list.map(i => (
                 <li key={i.props.id}>
                   {i.name}
                 </li>
@@ -29,7 +29,7 @@ class HomePage extends PureComponent {
 }
 
 const mapStateToProps = ({ home }) => ({
-  results: home.results,
+  list: home.list,
 });
 
 let id = 0;

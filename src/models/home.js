@@ -3,7 +3,7 @@ import { List } from 'immutable';
 export default {
   namespace: 'home',
   state: {
-    results: List([
+    list: List([
       {
         name: 'hewei0',
         props: {
@@ -13,10 +13,8 @@ export default {
     ]),
   },
   reducers: {
-    update(state, { payload: obj }) {
-      let { results } = state;
-      results = results.push(obj);
-      return { ...state, results };
+    update(state, { payload: item }) {
+      return { ...state, list: state.list.push(item) };
     },
   },
 };
