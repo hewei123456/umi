@@ -1,10 +1,13 @@
 import { List } from 'immutable';
 import React, { Fragment, PureComponent } from 'react';
+import { connect } from 'react-redux';
+
 import { Button, Input, Row, Col, message } from 'antd';
 import { AdminLayout } from '@/components';
+
 import { fetchUsers, createUser, deleteUser } from '@/request/apis';
 
-export default class ListPage extends PureComponent {
+class ListPage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,13 +62,15 @@ export default class ListPage extends PureComponent {
 
   render() {
     const { users, username } = this.state;
+    const { list, add, deleteItem } = this.props;
     return (
       <AdminLayout>
         <div style={{ height: '3000px' }}>
           {
             users.map(user => (
               <div key={user.id}>
-                {user.name}
+                id: {user.id}
+                用户名: {user.name}
                 <Button type="link" shape="circle" icon="close" onClick={() => {
                   this.deleteUser(user.id);
                 }}/>
@@ -91,9 +96,49 @@ export default class ListPage extends PureComponent {
                 }}>添加用户</Button>
             </Col>
           </Row>
+
+          <ul style={{ marginTop: '30px' }}>
+            {
+              list.map((item, index) => (
+                <li key={item.props.id}>
+                  id: {item.props.id}
+                  用户名: {item.name}
+                  <Button type="link" shape="circle" icon="close" onClick={() => {
+                    deleteItem(index);
+                  }}/>
+                </li>
+              ))
+            }
+          </ul>
+          <Button type="primary" onClick={add}>添 加</Button>
         </div>
         <Fragment/>
       </AdminLayout>
     );
   }
 }
+
+const mapStateToProps = ({ list }) => ({
+  list,
+});
+
+let id = 0;
+const mapDispatchToProps = dispatch => ({
+  add() {
+    id++;
+    dispatch({
+      type: 'list/add',
+      payload: {
+        name: 'hewei' + id, props: { id: id },
+      },
+    });
+  },
+  deleteItem(index) {
+    dispatch({
+      type: 'list/delete',
+      payload: index,
+    });
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListPage);

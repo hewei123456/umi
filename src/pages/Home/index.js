@@ -1,5 +1,4 @@
 import { Fragment, PureComponent } from 'react';
-import { connect } from 'react-redux';
 
 import echarts from 'echarts';
 import 'echarts/theme/macarons';
@@ -127,24 +126,4 @@ class HomePage extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ home }) => ({
-  list: home.list,
-});
-
-let id = 0;
-const mapDispatchToProps = dispatch => ({
-  update() {
-    id++;
-    dispatch({
-      type: 'home/update',
-      payload: {
-        name: 'hewei' + id, props: {
-          id: id,
-        },
-      },
-    });
-  },
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage;

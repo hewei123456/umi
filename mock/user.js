@@ -1,8 +1,9 @@
 let initId = 1;
 
+let id = 1;
 const users = [
   {
-    id: 1,
+    id,
     name: 'hewei',
   },
 ];
