@@ -1,6 +1,8 @@
 import { List } from 'immutable';
 import React, { Fragment, PureComponent } from 'react';
+import router from 'umi/router';
 import { connect } from 'react-redux';
+
 
 import { Button, Input, Row, Col, message } from 'antd';
 import { AdminLayout } from '@/components';
@@ -13,6 +15,7 @@ class ListPage extends PureComponent {
     this.state = {
       users: List([]),
       username: '',
+      count: 0,
     };
   }
 
@@ -61,17 +64,20 @@ class ListPage extends PureComponent {
   }
 
   render() {
-    const { users, username } = this.state;
+    const { users, username, count } = this.state;
     const { list, add, deleteItem } = this.props;
     return (
       <AdminLayout>
         <div style={{ height: '3000px' }}>
           {
             users.map(user => (
-              <div key={user.id}>
+              <div key={user.id} onClick={() => {
+                router.push('/list/' + user.id);
+              }}>
                 id: {user.id}
                 用户名: {user.name}
-                <Button type="link" shape="circle" icon="close" onClick={() => {
+                <Button type="link" shape="circle" icon="close" onClick={e => {
+                  e.stopPropagation();
                   this.deleteUser(user.id);
                 }}/>
               </div>
@@ -97,7 +103,7 @@ class ListPage extends PureComponent {
             </Col>
           </Row>
 
-          <ul style={{ marginTop: '30px' }}>
+          < ul style={{ marginTop: '30px' }}>
             {
               list.map((item, index) => (
                 <li key={item.props.id}>
@@ -111,6 +117,13 @@ class ListPage extends PureComponent {
             }
           </ul>
           <Button type="primary" onClick={add}>添 加</Button>
+
+          <div style={{ marginTop: '30px' }}>
+            {count}
+            <Button type="primary" onClick={() => {
+              this.setState(state => ({ count: state.count + 1 }));
+            }}>添 加</Button>
+          </div>
         </div>
         <Fragment/>
       </AdminLayout>

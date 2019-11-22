@@ -14,9 +14,9 @@ const navigation = [
     key: '/',
     icon: 'pie-chart',
   }, {
-    name: '表单',
+    name: '列表',
     key: '/list',
-    icon: 'edit',
+    icon: 'database',
   },
 ];
 
@@ -34,7 +34,6 @@ class Header extends PureComponent {
   };
 
   render() {
-    this.checkCurKey();
     return (
       <header id="header">
         <div className="logo">

@@ -2,9 +2,8 @@ import { Fragment } from 'react';
 import { connect } from 'dva';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Icon } from 'antd';
-import { Header } from '@/components/index';
+import { Header, Breadcrumbs } from '@/components/index';
 import './index.less';
-
 
 const AdminLayout = props => {
   const { showLeft, toggle, children, hasLeft } = props;
@@ -28,11 +27,17 @@ const AdminLayout = props => {
 
 
         <section className="view">
-          <Scrollbars>
-            <div className="view-content">
-              {children[0]}
-            </div>
-          </Scrollbars>
+          <div className='breadcrumb-wrapper'>
+            <Breadcrumbs/>
+          </div>
+
+          <div className='view-scroll-wrapper'>
+            <Scrollbars>
+              <div className="view-content">
+                {children[0]}
+              </div>
+            </Scrollbars>
+          </div>
         </section>
       </div>
     </Fragment>

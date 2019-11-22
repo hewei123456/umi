@@ -10,18 +10,23 @@ export default {
       component: '../layouts/index',
       routes: [
         {
+          path: '/',
+          component: './Home',
+          Routes: ['src/routes/Route.js'],
+        },
+        {
           path: '/login',
           component: './Login',
           Routes: ['src/routes/Route.js'],
         },
         {
-          path: '/list',
+          path: '/list/',
           component: './List',
-          Routes: ['src/routes/AuthRoute.js'],
+          Routes: ['src/routes/Route.js'],
         },
         {
-          path: '/',
-          component: './Home',
+          path: '/list/:id',
+          component: './Detail',
           Routes: ['src/routes/Route.js'],
         },
       ],
@@ -29,6 +34,7 @@ export default {
   ],
 
   disableCSSModules: true,
+  extraBabelIncludes: [],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
