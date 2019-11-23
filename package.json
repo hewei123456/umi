@@ -34,7 +34,7 @@
     "less-loader": "^5.0.0",
     "lint-staged": "^7.2.2",
     "react-test-renderer": "^16.7.0",
-    "umi": "^2.7.7",
+    "umi": "^2.12.1",
     "umi-plugin-react": "^1.8.4"
   },
   "lint-staged": {

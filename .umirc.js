@@ -26,7 +26,7 @@ export default {
         },
         {
           path: '/list/:id',
-          component: './Detail',
+          component: './List/$id',
           Routes: ['src/routes/AuthRoute.js'],
         },
       ],
